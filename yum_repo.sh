@@ -1,7 +1,7 @@
 #!/bin/bash
-#Author: 小白扮大神.
-#Date & Time: 2017-09-28
-#Version: 1.0.1.
+#Author: 小白扮大神
+#Date & Time: 2017-11-13
+#Version: 1.0.2
 
 function checkos(){
 	if [ -f /etc/redhat-release ];then
@@ -12,10 +12,8 @@ function checkos(){
 		centos_version=`grep -oE  "[0-9.]+" /etc/redhat-release`
 		echo -e "SYSTEM VERSION:${centos_version}"
 		if [ "$VER" == "6" ];then
-			prepare
 			centos6_yum
 		elif [ "$VER" == "7" ];then
-			prepare
 			centos7_yum
 		else
 			echo -e "\033[31m The installation is terminated\a! Please check and try again! \033[0m";
@@ -37,3 +35,6 @@ wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-
 yum clean all
 yum makecache
 }
+
+checkos
+exit;
