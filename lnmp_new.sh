@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: 小白扮大神.
-#Date & Time: 2017-11-12
-#Description: 1.2.0
+#Date & Time: 2018-02-23
+#Description: 1.3.0
 
 start_time=`date +%s`
 function checkos(){
@@ -229,10 +229,11 @@ cat << EOF > /home/wwwroot/default/phpmyadmin/config.inc.php
 ?>
 EOF
 echo "
-echo -e '正在重启lnmp服务		  [\033[32m  OK  \033[0m]'
+echo -e '正在重启lnmp服务'
 systemctl restart nginx.service
 systemctl restart mariadb.service
 systemctl restart php-fpm.service
+echo -e '[\033[32m  OK  \033[0m]'
 exit 0;
 " >/bin/lnmp
 chmod 777 /bin/lnmp
